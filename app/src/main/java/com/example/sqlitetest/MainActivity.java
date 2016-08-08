@@ -7,16 +7,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 //step 2 create new  activity
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivityTAG_";
+    private EditText mName;
+    private EditText mAge;
+    private String name;
+    private String age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void insertMagic(View view) {
@@ -24,8 +30,14 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase sqLiteDatabase = studentsHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(StudentsHelper.COLUMN_NAME, "Mike");
-        values.put(StudentsHelper.COLUMN_AGE, 31);
+
+        mName =(EditText)findViewById(R.id.eName);
+        mAge =(EditText)findViewById(R.id.eAge);
+        name = mName.getText().toString();
+        age = mAge.getText().toString();
+
+        values.put(StudentsHelper.COLUMN_NAME, name);
+        values.put(StudentsHelper.COLUMN_AGE, age);
 
         sqLiteDatabase.insert(StudentsHelper.TABLE_NAME, null, values);
         sqLiteDatabase.close();

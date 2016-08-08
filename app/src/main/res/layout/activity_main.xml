@@ -11,16 +11,16 @@
     tools:context="com.example.sqlitetest.MainActivity">
 
     <EditText
-        android:id="@+id/mName"
+        android:id="@+id/eName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"/>
 
     <EditText
-        android:id="@+id/mPWD"
+        android:id="@+id/eAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"/>
+        android:hint="Age"/>
 
     <Button
         android:layout_width="match_parent"
